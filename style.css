@@ -9,6 +9,11 @@ html, body{
     color: #222;
 }
 
+ul {
+    text-align: center !important;
+    list-style-position: inside !important;
+}
+
 
 /*---Navigation---*/
 .navbar{
@@ -24,7 +29,7 @@ html, body{
 
 /*---Footer---*/
 footer{
-    background-color: #3f3f3f;
+    background-color: #3a3535;
     color: #d5d5d5;
     padding: 2rem;
 }

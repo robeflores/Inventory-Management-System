@@ -90,13 +90,15 @@
 <hr class="my-4">
 <div class="container">
     <img src="carsforsale.jpg" class="rounded mx-auto d-block" style="max-width: 33%;">
-
+    
+    <div style="margin-top: 25px; display: flex; justify-content: center;">
     <ul>
         <li>Search for a car to buy</li>
         <li>Acquire financing</li>
         <li>About us</li>
         <li>Contact us</li>
     </ul>
+    </div>
 </div>
       
     

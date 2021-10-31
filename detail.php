@@ -45,6 +45,8 @@
 
                 $color = $row['Color'];
                 echo "<p>Color: $color </p>";
+
+                echo "<button type='button' class='btn btn-primary'>BUY</button>";
             }
         }
     }
