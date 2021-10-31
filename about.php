@@ -93,7 +93,7 @@
     
     <div style="margin-top: 25px; display: flex; justify-content: center;">
     <ul>
-        <li>Best online auto dealer ever.</li>
+        <li>We are a reputable online dealer specialising in vehicles!</li>
     </ul>
     </div>
 </div>
