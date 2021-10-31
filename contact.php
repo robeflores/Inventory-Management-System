@@ -88,25 +88,28 @@
     
 <!-- index section -->
 <hr class="my-4">
-<div class="container text-center">
+<div class="container">
 
-    <form action="index.php" method="post" id="contactform">
+    <div style="margin-top: 25px; display: flex; justify-content: center;">
+        <form action="index.php" method="post" id="contactform">
 
-    <p><label for="inputName">Name:<sup>*</sup></label>
-    <input type="text" name="name" id="inputName" required='required'>
-    </p>
+        <p><label for="inputName">Name:<sup>*</sup></label>
+        <input type="text" name="name" id="inputName" required='required'>
+        </p>
 
-    <p><label for="inputName">Email:<sup>*</sup></label>
-    <input type="email" name="name" id="inputName" required='required'>
-    </p>
+        <p><label for="inputName">Email:<sup>*</sup></label>
+        <input type="email" name="name" id="inputName" required='required'>
+        </p>
 
-    <p><label for="inputMessage">Message:<sup>*</sup></label>
-    <textarea form ="contactform" name="message" id="inputMessage" rows="3" cols="35" wrap="soft" required='required'></textarea>
-    </p>
+        <p><label for="inputMessage">Message:<sup>*</sup></label>
+        <textarea form ="contactform" name="message" id="inputMessage" rows="3" cols="35" wrap="soft" required='required'></textarea>
+        </p>
 
 
-    <input type="submit" value="Submit" > <input type="reset" value="Reset">
-    </form>
+        <input type="submit" value="Submit" > <input type="reset" value="Reset">
+        </form>
+
+    </div>
 
 </div>
 

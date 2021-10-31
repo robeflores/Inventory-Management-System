@@ -93,10 +93,7 @@
     
     <div style="margin-top: 25px; display: flex; justify-content: center;">
     <ul>
-        <li>Search for a car to buy</li>
-        <li>Acquire financing</li>
-        <li>About us</li>
-        <li>Contact us</li>
+        <li>Best online auto dealer ever.</li>
     </ul>
     </div>
 </div>

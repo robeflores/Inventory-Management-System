@@ -32,6 +32,28 @@
 ?>
 
 <script>
+    function Calculate() {
+        var bud = parseInt(document.getElementById('budgetInput').value);
+        var dwnpay = parseInt(document.getElementById('dwnpayInput').value);
+        var apr = parseFloat(document.getElementById('aprInput').value) / 100;
+        var term = parseInt(document.getElementById('termLen').value);
+        var monthlyInterest = apr / 12;
+        var intAgainstPrinc = monthlyInterest * (bud - dwnpay);
+        var intpow = Math.pow((1 + monthlyInterest), term);
+        var intratio = 1 - (1 / intpow);
+        var final = (intAgainstPrinc / intratio);
+        var finalOut = final.toFixed(2);
+        document.getElementById('outputAmt').innerHTML = "$" + finalOut;
+        document.getElementById('budget').innerHTML = bud.toFixed(2);
+        document.getElementById('downpayment').innerHTML = "-" + dwnpay.toFixed(2);
+    }
+    function loanSubmit() {
+        document.getElementById('formSub').innerHTML = "Form Successfully Submitted.";
+        document.getElementById('loanApp').clear();
+    }
+</script>
+
+<script>
     //prevents refreshing and duplicate form submissions
     if ( window.history.replaceState ) {
         window.history.replaceState( null, null, window.location.href );
@@ -89,16 +111,132 @@
 <!-- index section -->
 <hr class="my-4">
 <div class="container">
-    <img src="carsforsale.jpg" class="rounded mx-auto d-block" style="max-width: 33%;">
 
+    <h3 class="text-center">Calculating your potential montly payments</h3>
+    <br>
+
+    <table>
+    <tr>
+        <td>
+            <section>
+                
+                <table>
+                    <tr>
+                        <td>
+                            Vehicle Budget:
+                        </td>
+                        <td>
+                            <input type="text" name="budgetInput" id="budgetInput" onchange="Calculate()" value="14000" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Down Payment:
+                        </td>
+                        <td>
+                            <input type="text" name="dwnpayInput" id="dwnpayInput" onchange="Calculate()" value="2000" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            APR:
+                        </td>
+                        <td>
+                            <input type="range" id="aprInput" name="aprInput" min="0.1" max="20" step="0.1" oninput="this.nextElementSibling.value = this.value" onchange="Calculate()" /><output>0.1</output>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Term Length:
+                        </td>
+                        <td>
+                            <select type="" name="termLen" id="termLen" onchange='Calculate()' />
+                            <option value="12"> 12 Month</option>
+                            <option value="24"> 24 Month</option>
+                            <option value="36"> 36 Month</option>
+                            <option value="48"> 48 Month</option>
+                            <option value="60"> 60 Month</option>
+                            <option value="72"> 72 Month</option>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </td>
+   
+        
+        <td>
+            <section id="summary">
+                <h3>
+                    Calculator Summary
+                </h3>
+                <p>Budget:</p>
+                <p id="budget">14000.00</p>
+                <br />
+                <p>Down Payment:</p>
+                <p id="downpayment"> -2000.00</p>
+                <br />
+            </section>
+            <section id="summary">
+                Your Monthly Payment is expected to be:
+                <label name="outputAmt" id="outputAmt"> </label>
+            </section>
+        </td>
+    </tr>
+
+</table>
+</br>
+<hr />
+</br>
+<section id="financeInfo">
+    Be sure to plan for the future! While our calculator can help in planning how to get you into the vehicle of your dreams,
+    make certain that the full cost of owning a vehicle is accounted for. You should account for insurance and maintanence costs for
+    your vehicle when determining your budget.
+</section>
+</br>
+<hr />
+</br>
+<section id="loanApplication">
+    Interested in applying for a loan through us or one of our trusted partners? No sweat! Just fill out the form below and you'll be well on you way!
+    
     <div style="margin-top: 25px; display: flex; justify-content: center;">
-    <ul>
-        <li>Search for a car to buy</li>
-        <li>Acquire financing</li>
-        <li>About us</li>
-        <li>Contact us</li>
-    </ul>
+        <form>
+        <p><label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname" />
+        </p>
+
+        <p>
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname" />
+        </p>
+
+        <p>
+            <label for="bday">Birthdate:</label>
+            <input type="date" id="bday" name="bday" />
+        </p>
+
+        <p>
+            <label for="homeAdd">Home Address:</label>
+            <input type="text" id="homeAdd" name="homeAdd" />
+        </p>
+
+        <p>
+            <label for="email">E-mail:</label>
+            <input type="text" id="email" name="email" />
+        </p>
+
+        <p>
+            <label for="income">Monthly Income:</label>
+            <input type="text" id="income" name="income" />
+        </p>
+
+            <input type="submit" />
+        </form>
     </div>
+ 
+     
+</section>
+
+
 </div>
       
     

@@ -144,7 +144,7 @@
             padding-top: 12px;
             padding-bottom: 12px;
             text-align: left;
-            background-color: rgb(150, 200, 255);;
+            background-color: rgb(64,213,210);;
             color: white;
         }
     </style>
