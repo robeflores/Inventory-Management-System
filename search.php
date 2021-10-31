@@ -47,7 +47,7 @@
             foreach( $result as $row ) {
                 $id = $row["ID"];
 
-                echo "<tr onclick='post($id)'>";
+                echo "<tr onclick='post($id)' style='cursor: pointer;'>";
 
                 //make column
                 $make = $row["Make"];
@@ -81,13 +81,14 @@
         var form = $('<form></form>');
 
         form.attr("method", "post");
-        form.attr("action", "search.php");
+        form.attr("action", "detail.php");
 
         
         var field = $('<input></input>');
 
         field.attr("type", "hidden");
-        field.attr("carID", param);
+        field.attr("name", "carID");
+        field.attr("value", param);
 
         form.append(field);
         
