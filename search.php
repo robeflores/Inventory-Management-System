@@ -2,7 +2,7 @@
 <?php
     session_start(); // must be included for stored session variables to work
 
-    class Index {
+    class Search {
         private $pdo; // keep track of the pdo object used to work with our mysql database and execute queries.
 
         /**
@@ -10,7 +10,7 @@
         */
         function __construct() {
             $host = '127.0.0.1';
-            $db = 'jazzfusion_artists';
+            $db = 'car_inventory';
             $user = 'root';
             $pass = '';
             $charset = 'utf8';
@@ -23,12 +23,55 @@
             $this->pdo = new PDO($dsn, $user, $pass, $opt);
         }
 
-        function myFunc(){
+        /**
+        * display table of cars
+        */
+        public function DisplayTable(){
+            $sql = " SELECT * FROM cars ";
+
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
             
+            echo "
+            <table id='cars'>
+                <tr>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Price</th>
+                    <th>Color</th>
+                </tr>
+            ";
+
+            //display each record that is in the user's watched list to a row in the html table
+            $result = $stmt->fetchAll();
+            foreach( $result as $row ) {
+                echo "<tr>";
+
+                //make column
+                $make = $row["Make"];
+                echo "<td> $make </td>";
+
+                //model column
+                $model = $row["Model"];
+                echo "<td> $model </td>";
+
+                //price column
+                $price = $row["Price"];
+                echo "<td> $price </td>";
+
+                //color column
+                $color = $row["Color"];
+                echo "<td> $color </td>";
+
+
+
+                echo "</tr>";
+            }
+            echo "</table>";
         }
     }
 
-    $index = new Index();
+    $search = new Search();
 ?>
 
 <script>
@@ -53,6 +96,32 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
 	<link href="style.css" rel="stylesheet">
+
+    <style>
+        /*---Table---*/
+        #cars {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        #cars td, #cars th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        
+        #cars tr:nth-child(even){background-color: #f2f2f2;}
+        
+        #cars tr:hover {background-color: #ddd;}
+        
+        #cars th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: rgb(150, 200, 255);;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -65,19 +134,19 @@
     <ul class="navbar-nav mr-auto">
       
         <li class="nav-item">
-        <a class="nav-link" href="#">Search</a>
+        <a class="nav-link" href="search.php">Search</a>
         </li>
 
         <li class="nav-item">
-        <a class="nav-link" href="#">Finance</a>
+        <a class="nav-link" href="finance.php">Finance</a>
         </li>
 
         <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
+        <a class="nav-link" href="contact.php">Contact</a>
         </li>
 
         <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="about.php">About</a>
         </li>
     <ul>
       
@@ -89,14 +158,12 @@
 <!-- index section -->
 <hr class="my-4">
 <div class="container">
-    <img src="carsforsale.jpg" class="rounded mx-auto d-block" style="max-width: 33%;">
+    
+    <?php
+        //generate the table
+        $search->DisplayTable();
+    ?>
 
-    <ul>
-        <li>Search for a car to buy</li>
-        <li>Acquire financing</li>
-        <li>About us</li>
-        <li>Contact us</li>
-    </ul>
 </div>
       
     
