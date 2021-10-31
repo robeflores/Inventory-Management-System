@@ -44,13 +44,16 @@
         var final = (intAgainstPrinc / intratio);
         var finalOut = final.toFixed(2);
         document.getElementById('outputAmt').innerHTML = "$" + finalOut;
-        document.getElementById('budget').innerHTML = bud.toFixed(2);
-        document.getElementById('downpayment').innerHTML = "-" + dwnpay.toFixed(2);
+        document.getElementById('budgetInput').innerHTML = bud.toFixed(2);
+        document.getElementById('dwnpayInput').innerHTML = "-" + dwnpay.toFixed(2);
     }
     function loanSubmit() {
         document.getElementById('formSub').innerHTML = "Form Successfully Submitted.";
         document.getElementById('loanApp').clear();
     }
+    window.onload = function(){
+        Calculate();
+    };
 </script>
 
 <script>
@@ -166,19 +169,10 @@
         
         <td>
             <section id="summary">
-                <h3>
-                    Calculator Summary
-                </h3>
-                <p>Budget:</p>
-                <p id="budget">14000.00</p>
-                <br />
-                <p>Down Payment:</p>
-                <p id="downpayment"> -2000.00</p>
-                <br />
-            </section>
-            <section id="summary">
+                <p>
                 Your Monthly Payment is expected to be:
                 <label name="outputAmt" id="outputAmt"> </label>
+                </p>
             </section>
         </td>
     </tr>

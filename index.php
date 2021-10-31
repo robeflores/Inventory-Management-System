@@ -95,7 +95,7 @@
     <ul>
         <li>Search for a car to buy</li>
         <li>Acquire financing</li>
-        <li>About us</li>
+        <li>learn about us</li>
         <li>Contact us</li>
     </ul>
     </div>
