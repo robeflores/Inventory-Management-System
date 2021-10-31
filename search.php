@@ -45,7 +45,9 @@
             //display each record that is in the user's watched list to a row in the html table
             $result = $stmt->fetchAll();
             foreach( $result as $row ) {
-                echo "<tr>";
+                $id = $row["ID"];
+
+                echo "<tr onclick='post($id)'>";
 
                 //make column
                 $make = $row["Make"];
@@ -73,6 +75,29 @@
 
     $search = new Search();
 ?>
+
+<script>
+    function post(param) {
+        var form = $('<form></form>');
+
+        form.attr("method", "post");
+        form.attr("action", "search.php");
+
+        
+        var field = $('<input></input>');
+
+        field.attr("type", "hidden");
+        field.attr("carID", param);
+
+        form.append(field);
+        
+
+        // The form needs to be a part of the document in
+        // order for us to be able to submit it.
+        $(document.body).append(form);
+        form.submit();
+    };
+</script>
 
 <script>
     //prevents refreshing and duplicate form submissions
