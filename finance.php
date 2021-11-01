@@ -1,34 +1,13 @@
 
 <?php
+    require_once "webpage.php";
     session_start(); // must be included for stored session variables to work
 
-    class Index {
-        private $pdo; // keep track of the pdo object used to work with our mysql database and execute queries.
+    class Finance extends Webpage{
 
-        /**
-        * Connect to the database. Setup pdo object
-        */
-        function __construct() {
-            $host = '127.0.0.1';
-            $db = 'jazzfusion_artists';
-            $user = 'root';
-            $pass = '';
-            $charset = 'utf8';
-            $dsn = "mysql:host=$host; dbname=$db; charset=$charset";
-            $opt = [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES => false,
-            ];
-            $this->pdo = new PDO($dsn, $user, $pass, $opt);
-        }
-
-        function myFunc(){
-            
-        }
     }
 
-    $index = new Index();
+    $finance = new Finance();
 ?>
 
 <script>
@@ -118,6 +97,7 @@
     <h3 class="text-center">Calculating your potential montly payments</h3>
     <br>
 
+    <div style="margin-top: 25px; display: flex; justify-content: center;">
     <table>
     <tr>
         <td>
@@ -169,15 +149,19 @@
         
         <td>
             <section id="summary">
-                <p>
-                Your Monthly Payment is expected to be:
-                <label name="outputAmt" id="outputAmt"> </label>
-                </p>
+                
             </section>
         </td>
     </tr>
 
-</table>
+    </table>
+    </div>
+
+    <p style="margin-top: 20px;" class="text-center">
+        Your Monthly Payment is expected to be:
+        <label name="outputAmt" id="outputAmt"> </label>
+    </p>
+
 </br>
 <hr />
 </br>
