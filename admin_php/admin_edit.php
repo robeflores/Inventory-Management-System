@@ -1,6 +1,6 @@
 
 <?php
-    require_once "../webpage.php";
+    require_once "../php/webpage.php";
     session_start(); // must be included for stored session variables to work
 
     class Admin_Edit extends Webpage{
@@ -15,7 +15,7 @@
                 $stmt = $this->pdo->query("SELECT Make, Model, Price, Color FROM cars WHERE id=$id");
                 $this->row = $stmt->fetch();
 
-                echo "<form action='admin_index.php' method='post'>";
+                echo "<form action='../admin_index.php' method='post'>";
 
                 echo "<input type='hidden' name='editID' value=$id required='required'>";
                 
@@ -44,7 +44,7 @@
             if(isset($_POST["carID"])){
                 $id = $_POST["carID"];
                 echo "
-                        <form action='admin_index.php' method='post'>
+                        <form action='../admin_index.php' method='post'>
                             <button type='submit' name='deleteID' value='$id' class='btn btn-danger mt-2'>Remove car from database</button>
                         </form>
                     ";
@@ -76,7 +76,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
-	<link href="../style.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
 
     <style>
         /*---Table---*/
@@ -109,7 +109,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 <div class="d-flex justify-content-center">
-    <a class="navbar-brand" href="admin_index.php" >Inventory Management System - Admin</a>
+    <a class="navbar-brand" href="../admin_index.php" >Inventory Management System - Admin</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">

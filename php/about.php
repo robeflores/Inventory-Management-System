@@ -3,39 +3,19 @@
     require_once "webpage.php";
     session_start(); // must be included for stored session variables to work
 
-    class Detail extends Webpage{
-        /**
-        * display details for car
-        */
-        public function DisplayDetails(){
-            if(isset($_POST["carID"])){
-
-                //get details from our car database at desired ID and display its fields
-                $id = $_POST["carID"];
-                $stmt = $this->pdo->query("SELECT Make, Model, Price, Color FROM cars WHERE id=$id");
-                $row = $stmt->fetch();
-
-                $make = $row['Make'];
-                echo "<p>Make: $make </p>";
-
-                $model = $row['Model'];
-                echo "<p>Model: $model </p>";
-
-                $price = $row['Price'];
-                echo "<p>Price: $price </p>";
-
-                $color = $row['Color'];
-                echo "<p>Color: $color </p>";
-
-                echo "<button type='button' class='btn btn-primary'>BUY</button>";
-            }
-        }
+    class About extends Webpage{
+        
     }
 
-    $detail = new Detail();
+    $about = new About();
 ?>
 
-
+<script>
+    //prevents refreshing and duplicate form submissions
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,14 +31,14 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
-	<link href="style.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 <div class="d-flex justify-content-center">
-    <a class="navbar-brand" href="index.php" >Inventory Management System</a>
+    <a class="navbar-brand" href="../index.php" >Inventory Management System</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -87,13 +67,14 @@
     
 <!-- index section -->
 <hr class="my-4">
-<div class="container text-center">
+<div class="container">
+    <img src="../images/carsforsale.jpg" class="rounded mx-auto d-block" style="max-width: 33%;">
     
-    <?php
-        //generate the car details
-        $detail->DisplayDetails();
-    ?>
-
+    <div style="margin-top: 25px; display: flex; justify-content: center;">
+    <ul>
+        <li>We are a reputable online dealer specialising in vehicles!</li>
+    </ul>
+    </div>
 </div>
       
     

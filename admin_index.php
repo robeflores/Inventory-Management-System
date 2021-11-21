@@ -1,6 +1,6 @@
 
 <?php
-    require_once "../webpage.php";
+    require_once "php/webpage.php";
     session_start(); // must be included for stored session variables to work
 
     class Admin_Index extends Webpage {
@@ -85,7 +85,7 @@
         var form = $('<form></form>');
 
         form.attr("method", "post");
-        form.attr("action", "admin_edit.php");
+        form.attr("action", "admin_php/admin_edit.php");
 
         
         var field = $('<input></input>');
@@ -125,7 +125,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
-	<link href="../style.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 
     <style>
         /*---Table---*/
@@ -179,7 +179,7 @@
     ?>
 
     <br>
-    <button type='button' class='btn btn-primary' onclick="document.location='admin_add.php'">Add new car</button>
+    <button type='button' class='btn btn-primary' onclick="document.location='admin_php/admin_add.php'">Add new car</button>
 
 </div>
       

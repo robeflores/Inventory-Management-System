@@ -103,7 +103,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
-	<link href="style.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
 
     <style>
         /*---Table---*/
@@ -136,7 +136,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 <div class="d-flex justify-content-center">
-    <a class="navbar-brand" href="index.php" >Inventory Management System</a>
+    <a class="navbar-brand" href="../index.php" >Inventory Management System</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">

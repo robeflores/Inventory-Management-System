@@ -1,6 +1,6 @@
 
 <?php
-    require_once "webpage.php";
+    require_once "php/webpage.php";
     session_start(); // must be included for stored session variables to work
 
     class Index extends Webpage {
@@ -31,7 +31,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
-	<link href="style.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -44,19 +44,19 @@
     <ul class="navbar-nav mr-auto">
       
         <li class="nav-item">
-        <a class="nav-link" href="search.php">Search</a>
+        <a class="nav-link" href="php/search.php">Search</a>
         </li>
 
         <li class="nav-item">
-        <a class="nav-link" href="finance.php">Finance</a>
+        <a class="nav-link" href="php/finance.php">Finance</a>
         </li>
 
         <li class="nav-item">
-        <a class="nav-link" href="contact.php">Contact</a>
+        <a class="nav-link" href="php/contact.php">Contact</a>
         </li>
 
         <li class="nav-item">
-        <a class="nav-link" href="about.php">About</a>
+        <a class="nav-link" href="php/about.php">About</a>
         </li>
     <ul>
       
@@ -68,7 +68,7 @@
 <!-- index section -->
 <hr class="my-4">
 <div class="container">
-    <img src="carsforsale.jpg" class="rounded mx-auto d-block" style="max-width: 33%;">
+    <img src="images/carsforsale.jpg" class="rounded mx-auto d-block" style="max-width: 33%;">
 
     <div style="margin-top: 25px; display: flex; justify-content: center;">
     <ul>

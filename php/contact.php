@@ -31,14 +31,14 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
-	<link href="style.css" rel="stylesheet">
+	<link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
 <div class="d-flex justify-content-center">
-    <a class="navbar-brand" href="index.php" >Inventory Management System</a>
+    <a class="navbar-brand" href="../index.php" >Inventory Management System</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -65,7 +65,7 @@
 </nav>
 
     
-<!-- index section -->
+<!-- contact section -->
 <hr class="my-4">
 <div class="container">
 
@@ -87,6 +87,16 @@
 
         <input type="submit" value="Submit" > <input type="reset" value="Reset">
         </form>
+
+        <div id="like_button_container"></div>
+
+        <!-- Load React. -->
+        <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+        <!-- Load our React component. -->
+        <script src="like_button.js"></script>
 
     </div>
 
