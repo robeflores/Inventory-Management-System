@@ -32,6 +32,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     
 	<link href="../css/style.css" rel="stylesheet">
+
+    <!-- Load React. -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <!-- Load Babel. -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    
 </head>
 
 <body>
@@ -70,37 +78,73 @@
 <div class="container">
 
     <div style="margin-top: 25px; display: flex; justify-content: center;">
-        <form action="index.php" method="post" id="contactform">
-
-        <p><label for="inputName">Name:<sup>*</sup></label>
-        <input type="text" name="name" id="inputName" required='required'>
-        </p>
-
-        <p><label for="inputName">Email:<sup>*</sup></label>
-        <input type="email" name="name" id="inputName" required='required'>
-        </p>
-
-        <p><label for="inputMessage">Message:<sup>*</sup></label>
-        <textarea form ="contactform" name="message" id="inputMessage" rows="3" cols="35" wrap="soft" required='required'></textarea>
-        </p>
-
-
-        <input type="submit" value="Submit" > <input type="reset" value="Reset">
-        </form>
-
-        <div id="like_button_container"></div>
-
-        <!-- Load React. -->
-        <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-
-        <!-- Load our React component. -->
-        <script src="like_button.js"></script>
+        <div id="form"></div>
 
     </div>
 
 </div>
+
+<script type="text/babel">
+
+    class Form extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            fullname: '',
+            email: '',
+            message: '',
+        };
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleInputChange(event) {
+        const target = event.target;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        });
+    }
+
+    handleSubmit(event) {
+        alert('A name was submitted: ' + this.state.value);
+        event.preventDefault();
+    }
+
+    render() {
+        return (
+        <form action="index.php" method="post" id="contactform" onSubmit={this.handleSubmit}>
+            <p>
+            <label for="inputName">Name:<sup>*</sup></label>
+            <input name="fullname" type="text" id="inputName" required="required" value={this.state.value} onChange={this.handleInputChange} />
+            </p>
+
+            <p>
+            <label for="inputEmail">Email:<sup>*</sup></label>
+            <input name="email" type="email" id="inputEmail" required="required" value={this.state.value} onChange={this.handleInputChange} />
+            </p>
+
+            <p><label for="inputMessage">Message:<sup>*</sup></label>
+            <textarea form ="contactform" name="message" id="inputMessage" rows="3" cols="35" wrap="soft" required='required'
+                value={this.state.value} onChange={this.handleChange}>
+            </textarea>
+            </p>
+            
+            <input type="submit" value="Submit" />
+        </form>
+        );
+    }
+    }
+
+    ReactDOM.render(
+    <Form/>,
+    document.getElementById('form')
+    );
+
+</script>
+
 
       
     
