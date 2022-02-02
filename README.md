@@ -1,8 +1,8 @@
-# InventoryManagementSystem
-final group project for csci441 at FHSU.
+# Inventory-Management-System
+- manage inventory with easy to use web app
+- ReactJS using the Create-React-App environment
+- RESTful API within Laravel which implements the essential CRUD and other app-specific database functions
 
-- browse the inventory as a customer. the main website is meant to emulate functionality as to what is seen in popular ecommerce sites.
-- manage stock with seperate php pages named under keyword 'admin'
-
-- utilising PHP and mysql as the backend solution.
-- front end makes use of javascript, bootstrap, jquery, reactjs
+## React Dependencies
+- react-router-dom
+- axios
