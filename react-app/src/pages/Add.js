@@ -1,18 +1,18 @@
+import React  from 'react';
 import axios from 'axios';
 import { useState } from "react";
 
 
 export default function Add () {
-    const [inputs, setInputs] = useState({});
-
-    const [responseMessage, setResponseMessage] = useState("");
-    const [responded, setResponded] = useState(false);
-
+    const [inputs, setInputs] = useState({descriptor: "", quantity: 1});
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
-        setInputs(values => ({...values, [name]: value}))
-      }
+        setInputs( values => ({...values, [name]: value}) );
+    }
+
+    const [responseMessage, setResponseMessage] = useState("");
+    const [responded, setResponded] = useState(false);
 
     async function addItem() {
         const response = await axios.post("http://localhost:8000/api/items/", {descriptor: inputs.descriptor, quantity: inputs.quantity} );
@@ -22,7 +22,7 @@ export default function Add () {
     const handleSubmit = (event) => {
         event.preventDefault();
         addItem().then((data) => {
-            if(data == 201)
+            if(data === 201)
                 setResponseMessage("item added!");
             setResponded(true);
         })

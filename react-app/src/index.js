@@ -1,3 +1,4 @@
+import React  from 'react';
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import './index.css';
@@ -5,6 +6,7 @@ import './index.css';
 import NoPage from "./pages/NoPage";
 import Home from "./pages/Home";
 import Add from "./pages/Add";
+import Detail from "./pages/Detail";
 
 
 export default function App() {
@@ -16,6 +18,7 @@ export default function App() {
           <Route path="*" element={<NoPage />} />
           <Route path="/" element={<Home />} />
           <Route path="/add" element={<Add />} />
+          <Route path="/detail" element={<Detail />} />
       </Routes>
       <div className="push"></div>
       </main>
