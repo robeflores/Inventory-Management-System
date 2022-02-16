@@ -6,7 +6,7 @@ import './index.css';
 import NoPage from "./pages/NoPage";
 import Home from "./pages/Home";
 import Add from "./pages/Add";
-import Detail from "./pages/Detail";
+import Edit from "./pages/Edit";
 
 
 export default function App() {
@@ -18,7 +18,7 @@ export default function App() {
           <Route path="*" element={<NoPage />} />
           <Route path="/" element={<Home />} />
           <Route path="/add" element={<Add />} />
-          <Route path="/detail" element={<Detail />} />
+          <Route path="/edit" element={<Edit />} />
       </Routes>
       <div className="push"></div>
       </main>

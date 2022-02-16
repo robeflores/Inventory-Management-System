@@ -61,8 +61,8 @@ function Table(props){
 
     //utilise the useNavigate hook from react router dom to navigate to the next page and pass state data
     const navigate = useNavigate();
-    function goToDetail(arg) {
-        navigate("/detail", { state: {id: arg} });
+    function toEdit(arg) {
+        navigate("/edit", { state: {id: arg} });
     }
 
     const RenderHeader = () =>{
@@ -77,7 +77,7 @@ function Table(props){
 
     const RenderRows = () =>{
         return props.data.map((row) =>
-            <tr key={row.id} onClick={() => goToDetail(row.id)} style={{cursor: 'pointer'}}>
+            <tr key={row.id} onClick={() => toEdit(row.id)} style={{cursor: 'pointer'}}>
                 <td>{row.id}</td>
                 <td>{row.descriptor}</td>
                 <td>{row.quantity}</td>

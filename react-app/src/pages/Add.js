@@ -18,7 +18,6 @@ export default function Add () {
         const response = await axios.post("http://localhost:8000/api/items/", {descriptor: inputs.descriptor, quantity: inputs.quantity} );
         return response.data;
     }
-
     const handleSubmit = (event) => {
         event.preventDefault();
         addItem().then((data) => {
