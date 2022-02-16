@@ -25,6 +25,13 @@ class ItemController extends Controller
         $item = Item::findOrFail($id);
         $item->update($request->all());
 
-        return 201;
+        return 200;
+    }
+
+    public function delete($id){
+        $item = Item::findOrFail($id);
+        $item->delete();
+
+        return 204;
     }
 }

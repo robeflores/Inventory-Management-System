@@ -20,7 +20,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/items', [ItemController::class, 'index']);
-Route::get('/items/{id}', [ItemController::class, 'show']);
-Route::post('/items', [ItemController::class, 'store']);
-Route::put('/items/{id}', [ItemController::class, 'update']);
+//Item routes
+Route::get( '/items', [ItemController::class, 'index'] );
+Route::get( '/items/{id}', [ItemController::class, 'show'] );
+Route::post( '/items', [ItemController::class, 'store'] );
+Route::put( '/items/{id}', [ItemController::class, 'update'] );
+Route::delete( '/items/{id}', [ItemController::class, 'delete'] );

@@ -44,19 +44,19 @@ export default function Edit () {
     const handleUpdate = (event) => {
         event.preventDefault();
         updateItem().then((data) => {
-            if(data === 201)
+            if(data === 200)
                 toHome();
         })
         .catch((err) => console.log(err));
     }
 
     async function deleteItem() {
-        const response = await axios.put("http://localhost:8000/api/items/" + state.id, {descriptor: inputs.descriptor, quantity: inputs.quantity} );
+        const response = await axios.delete("http://localhost:8000/api/items/" + state.id );
         return response.data;
     }
     const handleDelete = () => {
         deleteItem().then((data) => {
-            if(data === 201)
+            if(data === 204)
                 toHome();
         })
         .catch((err) => console.log(err));
@@ -75,7 +75,7 @@ export default function Edit () {
                 <br/><label>Quantity: <input type="number" value={inputs.quantity || ""} name="quantity" onChange={handleChange} required/></label>
                 <br/><button type="submit" className="btn btn-primary">Apply changes</button>
             </form>
-            <button type="button" className="btn btn-danger" style={{marginTop: '5%'}} onClick={()=>toHome()}>Delete</button>
+            <button type="button" className="btn btn-danger" style={{marginTop: '5%'}} onClick={()=>handleDelete()}>Delete item</button>
         </div>
     );
 }

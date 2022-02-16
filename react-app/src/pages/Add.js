@@ -40,7 +40,7 @@ export default function Add () {
                 <h1>Add new inventory item:</h1>
                 <label>Description: <input type="text" value={inputs.descriptor || ""} name="descriptor" onChange={handleChange} required/></label>
                 <br/><label>Quantity: <input type="number" value={inputs.quantity || ""} name="quantity" onChange={handleChange} required/></label>
-                <br/><input type="submit"/>
+                <br/><button type="submit" className="btn btn-primary">Add new item</button>
             </form>
             <Response/>
         </div>
